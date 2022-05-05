@@ -1,0 +1,305 @@
+.section-contacts {
+  padding-bottom: 68px;
+  @include _576 {
+    padding-bottom: 50px;
+  }
+  &__title {
+    margin-bottom: 22px;
+    @include _576 {
+      margin-bottom: 14px;
+    }
+  }
+  &__wrap {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    @include _1200 {
+      grid-template-columns: repeat(8, 1fr);
+    }
+    @include _992 {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  &__map-wrap {
+    position: relative;
+    grid-column: span 2;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    @include _1200 {
+      grid-column: span 5;
+      height: 460px;
+    }
+    @include _992 {
+      grid-column: span 6;
+    }
+    @include _576 {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 472px;
+    }
+  }
+  &__map {
+    width: 100%;
+    height: 100%;
+    & .ymaps-2-1-79-ground-pane {
+      filter: grayscale(1);
+    }
+    & .ymaps-2-1-79-copyright__content-cell {
+      display: none;
+    }
+    & .ymaps-2-1-79-map-copyrights-promo {
+      display: none;
+    }
+  }
+  &__content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include _1200 {
+      top: auto;
+      bottom: 0;
+    }
+  }
+}
+
+.contacts-content {
+  padding: 173px 50px 150px 60px;
+  width: calc(50% - 15px);
+  height: 100%;
+  transform: translateX(-101%);
+  opacity: 0;
+  background-color: rgba(32, 32, 32, 0.85);
+  transition: transform .3s ease, opacity .3s ease;
+  @include _1200 {
+    padding: 23px 45% 21px 30px;
+    width: 100%;
+    height: auto;
+    transform: translate(0, 101%);
+  }
+  @include _992 {
+    padding: 24px 35% 24px 30px;
+  }
+  @include _576 {
+    padding: 29px 20px 9px;
+  }
+  &.active {
+    transform: translateX(0);
+    opacity: 1;
+    @include _1200 {
+      transform: translate(0);
+    }
+  }
+  &__btn-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    background: url('../img/close.svg') no-repeat center / 50%, #666;
+    transition: background-color .3s ease;
+      &:focus-visible {
+        background-color: $orangeDark;
+        outline: none;
+        @include _767 {
+          background-color: #666;
+        }
+      }
+      &:hover {
+        background-color: $orangeMain;
+        @include _767 {
+          background-color: #666;
+        }
+      }
+      &:active {
+        background-color: $orangeActive;
+      }
+  }
+  &__title {
+    margin: 0;
+    margin-bottom: 5px;
+    @include font (TTFirsNeue, 400);
+    font-size: 24px;
+    line-height: 1em;
+    color: #fff;
+    @include _576 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+  }
+  &__address {
+    margin: 0;
+    margin-bottom: 3px;
+    line-height: 1.75em;
+    color: $lightGrey;
+    @include _1200 {
+      display: inline;
+      margin-right: 13px;
+    }
+    @include _992 {
+      display: block;
+      margin-right: 0;
+    }
+    @include _576 {
+      margin-bottom: 11px;
+      line-height: 1.3em;
+    }
+  }
+  &__phone {
+    display: inline-flex;
+    align-items: center;
+    @include font (TTFirsNeue, 400);
+    color: #fff;
+    transition: color .3s ease, background-color .3s ease;
+    @include _767 {
+      color: $orangeMain;
+    }
+    @include _576 {
+      font-size: 14px;
+    }
+    &-icon {
+      margin-right: 3px;
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+      transition: fill .3s ease;
+      @include _767 {
+        fill: $orangeMain;
+      }
+    }
+    &:focus-visible {
+      color: $mainDarkColor;
+      outline: none;
+      background-color: #ffd4c1;
+      @include _767 {
+        background-color: transparent;
+        color: $orangeMain;
+      }
+      & .contacts-content__phone-icon {
+        fill: $mainDarkColor;
+        @include _767 {
+          fill: $orangeMain;
+        }
+      }
+    }
+    &:hover {
+      color: $orangeMain;
+      background-color: transparent;
+      & .contacts-content__phone-icon {
+        fill: $orangeMain;
+      }
+    }
+    &:active {
+      color: $orangeActive;
+      & .contacts-content__phone-icon {
+        fill: $orangeActive;
+      }
+    }
+  }
+}
+
+.contacts-form {
+  margin-top: -8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  @include _1200 {
+    grid-column: span 3;
+  }
+  @include _992 {
+    grid-column: span 4;
+  }
+  @include _576 {
+    margin-top: 498px;
+    grid-column: span 6;
+  }
+  &__title {
+    margin: 0;
+    margin-bottom: 4px;
+    @include font (TTFirsNeue, 400);
+    font-size: 24px;
+    line-height: 1em;
+    @include _576 {
+      margin-bottom: 11px;
+      font-size: 18px;
+    }
+  }
+  &__text {
+    margin: 0;
+    margin-bottom: 14px;
+    line-height: 1.4em;
+    color: #999;
+    @include _576 {
+      line-height: 1.3em;
+    }
+  }
+  &__input-wrap {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  &__input {
+    width: 100%;
+    border: 1px solid transparent;
+    color: $mainDarkColor;
+    background-color: #e9e9e9;
+    transition: border-color .3s ease;
+    @include _576 {
+      padding: 11px 23px;
+    }
+    &::placeholder {
+      color: #999;
+      transition: color .3s ease;
+    }
+    &:hover {
+      &::placeholder {
+        color: $orangeMain;
+        @include _767 {
+          color: #999;
+        }
+      }
+    }
+    &:focus {
+      border-color: $orangeMain;
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+  &__textarea {
+    margin-bottom: 20px;
+    width: 100%;
+    min-height: 150px;
+    resize: none;
+    border: 1px solid transparent;
+    color: $mainDarkColor;
+    background-color: #e9e9e9;
+    transition: border-color .3s ease;
+    @include _576 {
+      padding: 11px 23px;
+    }
+    &::placeholder {
+      color: #999;
+      transition: color .3s ease;
+    }
+    &:hover {
+      &::placeholder {
+        color: $orangeMain;
+        @include _767 {
+          color: #999;
+        }
+      }
+    }
+    &:focus {
+      border-color: $orangeMain;
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+}
+
+

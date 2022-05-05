@@ -1,0 +1,127 @@
+.section-hero {
+  padding-top: 41px;
+  padding-bottom: 68px;
+  @include _1200 {
+    padding-top: 35px;
+  }
+  @include _992 {
+    padding-top: 81px;
+  }
+  @include _767 {
+    padding: 75px 0 51px;
+  }
+}
+
+.section-hero__wrap {
+  display: grid;
+  gap: 30px;
+  grid-template: max-content / repeat(2, 1fr);
+  grid-auto-flow: column;
+  @include _767 {
+    gap: 20px;
+  }
+  @include _576 {
+    grid-template: max-content / 1fr;
+    grid-auto-flow: row;
+    gap: 34px;
+  }
+}
+
+.offer {
+  position: relative;
+  padding: 407px 140px 60px 58px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: end;
+  background: url('../img/hero-bg.jpg') no-repeat center / cover;
+  @include _1200 {
+    padding: 425px 30px 30px;
+    background-image: url('../img/hero-bg-1024.jpg');
+  }
+  @include _992 {
+    padding: 223px 70px 30px 28px;
+    background-image: url('../img/hero-bg-768.jpg');
+  }
+  @include _576 {
+    padding: 235px 46px 30px 28px;
+    background-image: url('../img/hero-bg-mobile.jpg');
+  }
+}
+
+.offer__hash {
+  top: 15px;
+  right: 15px;
+  padding: 7px 15px;
+  @include _767 {
+    top: 5px;
+    right: 5px;
+    padding: 4px 7px;
+    font-size: 12px;
+  }
+}
+
+.offer__text {
+  margin: 0;
+  margin-bottom: 3px;
+  color: #fff;
+  @include _1200 {
+    margin-bottom: 10px;
+  }
+}
+
+.offer__title {
+  margin: 0;
+  margin-bottom: 21px;
+  @include font(TTFirsNeue, 700);
+  font-size: 36px;
+  line-height: 1em;
+  color: #fff;
+  @include _1200 {
+    font-size: 34px;
+  }
+  @include _767 {
+    margin-bottom: 19px;
+    font-size: 24px;
+  }
+}
+
+.offer__btn {
+  @include _767 {
+    font-size: 14px;
+    padding: 12px 22px;
+  }
+}
+
+.hero-examples {
+  display: grid;
+  grid-template-rows: max-content;
+}
+
+.hero-examples__title {
+  line-height: 1em;
+  margin-top: -6px;
+  margin-bottom: 25px;
+  @include _1200 {
+    margin-top: 0;
+  }
+  @include _992 {
+    font-size: 22px;
+    margin-bottom: 17px;
+  }
+  @include _767 {
+    font-size: 18px;
+  }
+}
+
+.hero-examples__list {
+  display: grid;
+  grid-template: minmax(186px, auto) minmax(105px, auto) / repeat(2, 1fr);
+  gap: 30px;
+}
+
+.hero-examples__item:first-of-type {
+  grid-column: 1/span 2;
+}
+
+

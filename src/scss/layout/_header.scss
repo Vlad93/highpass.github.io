@@ -1,0 +1,422 @@
+.header {
+  position: relative;
+  z-index: 1;
+  background: $mainDarkColor;
+  &__wrap {
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    @include _1200 {
+      padding: 27px 0 26px;
+    }
+    @include _767 {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $mainDarkColor;
+      }
+    }
+    @include _576 {
+      padding: 24px 0 26px;
+    }
+  }
+  &__logo {
+    display: block;
+    flex: 0 0 190px;
+    height: 30px;
+    margin-right: 141px;
+    @include _1300 {
+      flex: 0 0 166px;
+      height: 27px;
+      margin-right: 83px;
+    }
+    @include _992 {
+      margin-right: 0;
+    }
+    @include _767 {
+      z-index: 1;
+    }
+    @include _576 {
+      flex: 0 0 112px;
+      height: 18px;
+    }
+  }
+  &__logo:focus-visible {
+    outline: 1px solid $orangeMain;
+    outline-offset: 3px;
+  }
+  &__soc-media {
+    margin-left: auto;
+    @include _1300 {
+      display: none;
+    }
+  }
+  &__search-open {
+    display: none;
+    margin-left: auto;
+    flex: 0 0 25px;
+    height: 25px;
+    border: none;
+    @include _1300 {
+      display: block;
+    }
+    @include _767 {
+      z-index: 1;
+    }
+    @include _576 {
+      flex: 0 0 20px;
+      height: 20px;
+    }
+      &:disabled {
+        cursor: default;
+      }
+      .header__search-open-icon {
+        fill: #bcbcbc;
+        transition: fill .3s ease;
+      }
+      &:focus-visible .header__search-open-icon {
+        fill: $orangeDark;
+        @include _767 {
+          fill: #bcbcbc;
+        }
+      }
+      &:hover .header__search-open-icon {
+        fill: $orangeMain;
+        @include _767 {
+          fill: #bcbcbc;
+        }
+      }
+      &:active .header__search-open-icon {
+        fill: $orangeActive;
+      }
+      &:disabled .header__search-open-icon {
+        fill:#bcbcbc;
+      }
+  }
+}
+
+.search-form {
+  display: none;
+  position: absolute;
+  top: 80%;
+  right: 30px;
+  width: 48%;
+  align-items: center;
+  padding: 4px;
+  opacity: 0;
+  visibility: hidden;
+  background-color: $mainDarkColor;
+  transition: opacity .3s ease, visibility .3s ease;
+  @include _1300 {
+    display: flex;
+  }
+  @include _767 {
+    z-index: 2;
+  }
+  @include _576 {
+    top: 0;
+    right: 21px;
+    width: calc(100% - 40px);
+    height: 99%;
+  }
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+    &__input {
+      width: 100%;
+      margin-right: 5px;
+      @include font (TTFirsNeue, 400);
+      font-size: 16px;
+      line-height: 1.3em;
+      color: #e9e9e9;
+      border-bottom: 1px solid #e9e9e9;
+      transition: border-color .3s ease;
+      @include _576 {
+        font-size: 14px;
+      }
+        &:hover {
+          border-bottom-color: $orangeMain;
+          @include _767 {
+            border-bottom-color: #e9e9e9;
+          }
+        }
+        &:focus-visible {
+          border-bottom-color: $orangeActive;
+          @include _767 {
+            border-bottom-color: #e9e9e9;
+          }
+        }
+        &:active {
+          border-bottom-color: $orangeActive;
+        }
+        &::placeholder {
+          color: #e9e9e9;
+        }
+    }
+    &__btn {
+      margin-right: 5px;
+        &:focus-visible .search-form__btn-icon {
+          fill: $orangeDark;
+          @include _767 {
+            fill: #bcbcbc;
+          }
+        }
+        &:hover .search-form__btn-icon {
+          fill: $orangeMain;
+          @include _767 {
+            fill: #bcbcbc;
+          }
+        }
+        &:active .search-form__btn-icon {
+          fill: $orangeActive;
+        }
+    }
+    &__btn-icon {
+      fill: #bcbcbc;
+      transition: fill .3s ease;
+    }
+    &__btn, &__btn-close {
+      flex: 0 0 23px;
+      height: 23px;
+      border: none;
+      @include _576 {
+        flex: 0 0 18px;
+        height: 18px;
+      }
+    }
+    &__btn-close {
+      margin-left: auto;
+      border-radius: 50%;
+      background: url('../img/close.svg') no-repeat center, #c4c4c4;
+      transition: background-color .3s ease;
+        &:focus-visible {
+          background-color: $orangeDark;
+          @include _767 {
+            background-color: #c4c4c4;
+          }
+        }
+        &:hover {
+          background-color: $orangeMain;
+          @include _767 {
+            background-color: #c4c4c4;
+          }
+        }
+        &:active {
+          background-color: $orangeActive;
+        }
+    }
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  @include _992 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 13px 30px 14px;
+    background-color: #4a4a4a;
+  }
+  @include _767 {
+    padding: 13px 27px 14px;
+  }
+  @include _576 {
+    padding: 13px 21px 12px;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    @include _992 {
+      width: 100%;
+      justify-content: space-between;
+    }
+    @include _767 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 13px 27px 36px;
+      width: 100%;
+      min-height: 80vh;
+      max-height: 100vh;
+      overflow: auto;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      background-color: $mainDarkColor;
+      border-top: 1px solid #808080;
+      transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+    @include _576 {
+      padding: 13px 21px 36px;
+    }
+  }
+  &__item:not(:nth-last-child(2)) {
+    margin-right: 79px;
+    @include _1200 {
+      margin-right: 33px;
+    }
+    @include _992 {
+      margin-right: 0;
+    }
+  }
+  &__item {
+    @include _767 {
+      margin-bottom: 30px;
+    }
+    &_adap_tel {
+      margin-bottom: 0;
+      display: none;
+      @include _767 {
+        display: block;
+        margin-top: auto;
+      }
+    }
+    &_adap_close {
+      display: none;
+      @include _767 {
+        display: block;
+        margin-bottom: 16px;
+      }
+    }
+  }
+  &__link-icon {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    fill:  $orangeMain;
+    transition: fill .3s ease;
+  }
+  &__link {
+    position: relative;
+    @include font(TTFirsNeue, 400);
+    font-size: 16px;
+    z-index: 2;
+    color: #fff;
+    transition-property: background-color, color;
+    transition-timing-function: ease;
+    transition-duration: .3s;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 100%;
+      width: calc(100% + 10px);
+      z-index: -1;
+      transform: translate(-5px, -50%);
+      background-color: transparent;
+      transition: background-color .3s ease;
+      @include _767 {
+        display: none;
+      }
+    }
+    &:focus-visible {
+      outline: none;
+      color: #fff;
+      &::after {
+        background-color: $orangeDark;
+      }
+    }
+    &:hover {
+      background-color: transparent;
+      color: $orangeMain;
+      &::after {
+        background-color: transparent;
+      }
+      @include _767 {
+        color: #fff;
+      }
+    }
+    &:active {
+      color: $orangeActive;
+    }
+    &_adap_tel {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: $orangeMain;
+      &:hover, &:focus-visible {
+        color: $orangeMain;
+      }
+      &:active {
+        color: $orangeActive;
+        & .header-menu__link-icon {
+          fill: $orangeActive;
+        }
+      }
+    }
+  }
+  &__btn {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background: transparent;
+    transition: background-color .3s ease, opacity .3s ease;
+    @include _767 {
+      display: flex;
+    }
+  }
+  &__btn-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    &::before, &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+    }
+    &::after {
+      top: auto;
+      bottom: 0;
+      width: 50%;
+    }
+  }
+  &__btn-close {
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    background: url('../img/close.svg') no-repeat center / 50%, #808080;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
